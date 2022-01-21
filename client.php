@@ -306,15 +306,15 @@ $("#fournisseurs").DataTable( {
 <div id="select_filter" class="row"></div>
 <table id="fournisseurs" class="display" style="width:100%">
     <thead>
-        <tr>
-            <th>NUMEAGRE</th>
-            <th>raison social</th>
-            <th>ADRESSE</th>
-            <th>tel</th>
-            <th>fax</th>
-            <th>ville</th>
-            <th>type d’activité</th>
-            <th>type d’agrément</th>
+        <tr style="background-color: #8cc63f;">
+            <th>Numeagre</th>
+            <th>Raison social</th>
+            <th>Adresse</th>
+            <th>Tel</th>
+            <th>Fax</th>
+            <th>Ville</th>
+            <th>Type d’activité</th>
+            <th>Type d’agrément</th>
         </tr>
     </thead>
     <tbody>';

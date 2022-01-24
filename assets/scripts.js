@@ -182,8 +182,12 @@ formValidation(fields)
           success:function(result){
             var json = JSON.parse(result);
               if(json.code1==200){
-              var redirect = window.location.origin+'/sntl/connexion-2'
-            window.location.href = redirect
+                Swal.fire({
+              icon: 'warning',
+              text: json.message,
+             })
+            //var redirect = window.location.origin+'/sntl/connexion-2'
+            //window.location.href = redirect
             }else{
               Swal.fire({
               icon: 'error',

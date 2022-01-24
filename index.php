@@ -17,80 +17,17 @@ function WordPress_resources() {
         'siteURL' => get_site_url()
     ));
     
+    
    include(__DIR__ . '/info.php');
     include(__DIR__ . '/inscription.php');
     include(__DIR__ . '/connexion.php');
     include(__DIR__ . '/client.php');
     include(__DIR__ . '/inscription_cli.php');
     include(__DIR__ . '/oracle.php');
-    include(__DIR__ . '/add_client.php');
    
 }
 // verifier_client
-add_action('post_submitbox_misc_actions', 'rejected_to_journaliste_button');
-function rejected_to_journaliste_button()
-{
-    global $post;
-    $user = wp_get_current_user();
-    
-    if (!in_array($post->post_type, ['verifier_client'])) return;
-    if (!current_user_can('edit_post', $post->ID)) return;
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    
-    echo '<div id="confirm_client" class="misc-pub-section"
-    style="border-top-style:solid; border-top-width:1px; border-top-color:#EEEEEE; border-bottom-width:0px;">
-    <input id="save-post2" class="button button-secondary"
-    type="submit" value="Confirmer" name="confirm_client" style="background-color:#12e652; color:#FFF">
-    <input id="save-post2" class="button button-secondary"
-    type="submit" value="refuser" name="reject_client" style="background-color:#d02e39; color:#FFF">
-        </div>
-         ';
-       
-}
-
-add_filter( 'wp_insert_post_data' , 'rejectedjournaliste_filter_handler' , '99', 2 );
-function rejectedjournaliste_filter_handler( $data , $postarr )
-{
-    $current_user = wp_get_current_user();
-    
-    if ($postarr['rejected_journaliste'] == 'Renvoyer au journaliste'){
-        
-        $data['post_status'] = 'rejectedjournaliste';
-    
-    }
-    return $data;
-}
-
-add_action('save_post','save_post_callback');
-function save_post_callback($post_id){
-    if (isset($_POST['reject_client'])){
- wp_trash_post($post_id);
-       $domaine = get_site_url();
-$link = $domaine."/wp-admin/edit.php?post_type=verifier_client";
-if (wp_redirect ($link)){
-    exit;
-}
-
-    }
-  else if(isset($_POST['confirm_client'])) {
-     
-    $login = get_field('username',$post_id );
-    $prenom = get_field('prenom',$post_id );
-    $nom = get_field( 'nom',$post_id);
-    $password = get_field( 'password',$post_id);
-    $email =  get_field( 'email',$post_id);
-
-      $userdata = array(
-        'user_login' => $login,
-        'first_name' => $prenom,
-        'last_name' => $nom,
-        'user_pass' => $password,
-        'user_email' =>  $email,
-        'role' => 'client'
-        );
-$user_id = wp_insert_user( $userdata ) ;
-  }
-}
+include(__DIR__ . '/verifier_client.php');
 // verifier_client end
 
 add_action('wp_enqueue_scripts', 'WordPress_resources');
@@ -293,26 +230,14 @@ if(isset ($_POST['rs'] , $_POST['code2'], $_POST['email2'], $_POST['tel2'], $_PO
     $stmt = oci_parse($conn, $requete1);
      oci_execute($stmt);
      oci_fetch_all($stmt,$extract) ;
-if(in_array($rs,$extract['RAISON']) and in_array($email2,$extract['EMAIL']) and in_array($code2,$extract['CODE'])  
-    and in_array($tel2,$extract['TEL']) and in_array($nom2,$extract['NOM']) and in_array($prenom2,$extract['PRENOM']) && !$user_m &&  !$user){
+if(!$user_m &&  !$user){
     
-     echo json_encode(array('code1'=>200 ,'message'=>'le compte est créé et activé')); 
-       $userdata = array(
-        'user_login' => $login2,
-        'first_name' => $prenom2,
-        'last_name' => $nom2,
-        'user_pass' => $password,
-        'user_email' =>  $email2,
-        'role' => 'client' 
-        );
-
-$user_id = wp_insert_user( $userdata ) ;
-
+     echo json_encode(array('code1'=>200 ,'message'=>'en cours de traitment')); 
 
 $vc= array(
     'post_type' => 'verifier_client',
     'post_title' => $prenom2.' '.$nom2,
-    'post_status' => 'publish'
+    'post_status' => 'pending'
     );
     //insert param in custom post
    $userc = wp_insert_post($vc);
@@ -341,6 +266,8 @@ function checklogin($wpcon){
     }
 
 }
+//------------------- post status ------------
 
+include(__DIR__ . '/new_post_status.php');
 
 ?>

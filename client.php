@@ -346,6 +346,7 @@ nonregle
 consommation
 </div>
 <b> <center> Click here to<a href = "/sntl/wp-content/plugins/test/logout" class="button"> logout.<a></center> </b>
+<b> <center> <a href = "#" > delete account<a></center> </b>
 </body>
 
 '

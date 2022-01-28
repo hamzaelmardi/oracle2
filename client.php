@@ -60,6 +60,25 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
+.button2 {
+border-radius: 4px 4px 4px 4px;
+  border: none;
+  color: #30404b;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 21px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+   background-color: #8cc63f;
+  color: white;
+  border: 2px solid #8cc63f;
+  
+}
 input[type=text] {
   border: 1px solid #555;
 }
@@ -72,6 +91,7 @@ input[type=text] {
   <script src="//cdn.datatables.net/plug-ins/1.11.3/dataRender/datetime.js"></script>
   <script src="//code.jquery.com/jquery-3.5.1.js"></script>
   <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <h1>Espace Client</h1> 
    <select  id="source" >
    <option value="" selected disabled>select</option>
@@ -89,6 +109,7 @@ input[type=text] {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
     $(document).ready(function(){
     var bindClickToToggle = function(element){
@@ -269,6 +290,9 @@ $table1 .= '</tbody>
    
 jQuery(document).ready( function ($) {
 $("#fournisseurs").DataTable( {
+    "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.11.4/i18n/fr_fr.json"
+            },
 
             initComplete: function () {
       this.api().columns([5,1,6]).every( function (d) {
@@ -307,7 +331,7 @@ $("#fournisseurs").DataTable( {
 <table id="fournisseurs" class="display" style="width:100%">
     <thead>
         <tr style="background-color: #8cc63f;">
-            <th>Numeagre</th>
+            <th>Num</th>
             <th>Raison social</th>
             <th>Adresse</th>
             <th>Tel</th>
@@ -346,7 +370,6 @@ nonregle
 consommation
 </div>
 <b> <center> Click here to<a href = "/sntl/wp-content/plugins/test/logout" class="button"> logout.<a></center> </b>
-<b> <center> <a href = "#" > delete account<a></center> </b>
 </body>
 
 '

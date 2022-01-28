@@ -24,11 +24,15 @@ function WordPress_resources() {
     include(__DIR__ . '/client.php');
     include(__DIR__ . '/inscription_cli.php');
     include(__DIR__ . '/oracle.php');
+    include(__DIR__ . '/profil.php');
+    include(__DIR__ . '/mon_compte.php');
    
 }
-// verifier_client
+//----------------- verifier_client --------
+
 include(__DIR__ . '/verifier_client.php');
-// verifier_client end
+
+// ----------------verifier_client end ----------
 
 add_action('wp_enqueue_scripts', 'WordPress_resources');
 
@@ -42,7 +46,8 @@ function capitaine_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'capitaine_assets' );
 
-// alert connexion fournisseur
+//---------- alert connexion fournisseur- --------------
+
 add_action( 'wp_ajax_load_comments', 'capitaine_load_comments' );
 add_action( 'wp_ajax_nopriv_load_comments', 'capitaine_load_comments' );
 
@@ -66,6 +71,7 @@ $vqr= array(
     session_start();
     $_SESSION['login'] = $login;
     $_SESSION['password'] = $password;
+    
     echo json_encode(array('code1'=>200,'message'=>'success', 'role'=>$user->roles));
  
 } else {
@@ -76,7 +82,7 @@ echo json_encode(array('code1'=>404,'message'=>'login ou password incorrect'));
     wp_die();
 
 }  
-// alert inscription personne phyique
+// -------- alert inscription personne phyique ------------
 
 add_action( 'wp_ajax_insert_fourn', 'capitaine_insert_fourn' );
 add_action( 'wp_ajax_nopriv_insert_fourn', 'capitaine_insert_fourn' );
@@ -135,7 +141,7 @@ echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne corresp
     wp_die();
 }
 
-// alert inscription personne morale
+//-------- alert inscription personne morale  -----------------
 
 add_action( 'wp_ajax_insert_morale', 'capitaine_insert_morale' );
 add_action( 'wp_ajax_nopriv_insert_morale', 'capitaine_insert_morale' );
@@ -191,7 +197,7 @@ echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne corresp
 }
 
 
-// alert inscription client
+// ----------- alert inscription client ------
 
 add_action( 'wp_ajax_insert_client', 'capitaine_insert_client' );
 add_action( 'wp_ajax_nopriv_insert_client', 'capitaine_insert_client' );
@@ -257,7 +263,7 @@ echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne corresp
 
 
 
-// check if user is loged in before accessing to  page
+//------------- check if user is loged in before accessing to  page  ----------
 function checklogin($wpcon){
     ob_start();
     session_start();
@@ -269,5 +275,67 @@ function checklogin($wpcon){
 //------------------- post status ------------
 
 include(__DIR__ . '/new_post_status.php');
+
+//----------- delete account-----------------
+
+    add_action( 'wp_ajax_delete_account', 'capitaine_delete_account' );
+    add_action( 'wp_ajax_nopriv_delete_account', 'capitaine_delete_account' );
+
+    function capitaine_delete_account() {
+       global $wpdb;
+       ob_start();
+    session_start();
+      $login = $_SESSION['login'] ;
+
+      $user= get_user_by('login', $login);
+      
+    $id = $user->data->ID;
+    if(wp_delete_user( $id )){
+        echo json_encode(array('code1'=>200)); 
+      wp_die();
+    }
+    else {
+    echo json_encode(array('code1'=>404));
+     wp_die();
+    }
+    }
+
+// -------- alert update user ------------
+
+add_action( 'wp_ajax_update_user', 'capitaine_update_user' );
+add_action( 'wp_ajax_nopriv_update_user', 'capitaine_update_user' );
+
+function capitaine_update_user() {
+    global $wpdb;
+     ob_start();
+    session_start();
+      $login = $_SESSION['login'] ;
+    $oldpassword = $_POST['oldpassword'];
+    $newpassword = $_POST['newpassword'];
+    $vqr= array(
+    'oldpassword' =>  $oldpassword,
+    'newpassword' =>  $newpassword,
+    
+  );
+ $wp_hasher = new PasswordHash(8,true);
+ $user = get_user_by('login', $login);
+ $pass = $user->data->user_pass;
+if($wp_hasher->CheckPassword($oldpassword,$pass)){ 
+     echo json_encode(array('code1'=>200 ,'message'=>'Mot de passe est à jour'));  
+
+    $id = $user->data->ID; 
+   wp_update_user( array(
+    'ID' => $id,
+    'user_pass' => $_POST[ 'newpassword' ]
+));
+
+      
+}
+else {
+echo json_encode(array('code1'=>404 ,'message'=> 'Ancien mot de passe incorrect'));
+}
+    wp_die();
+}
+
 
 ?>

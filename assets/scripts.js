@@ -82,11 +82,20 @@ formValidation(fields)
           url: ajaxurl,
           type: "POST",
           data: {'action': 'insert_fourn','nom': nom,'code': code,'login': login,'password': password,'email': email,'prenom': prenom,'cin': cin,'tel': tel},
-          success:function(result){
-            var json = JSON.parse(result);
+          success:function(res){
+            var json = JSON.parse(res);
               if(json.code1==200){
-                var redirect = window.location.origin+'/sntl/connexion-2'
+                Swal.fire({
+              icon: 'success',
+              text: json.message,
+              allowOutsideClick : false,
+             }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(result.isConfirmed);
+              var redirect = window.location.origin+'/sntl/connexion-2'
              window.location.href = redirect
+
+             }})
             }else{
               Swal.fire({
               icon: 'error',
@@ -133,13 +142,18 @@ formValidation(fields)
           success:function(result){
             var json = JSON.parse(result);
               if(json.code1==200){
+                Swal.fire({
+              icon: 'success',
+              text: json.message,
+              timer: 5000
+             })
                 var redirect = window.location.origin+'/sntl/connexion-2'
              window.location.href = redirect
             }else{
             Swal.fire({
               icon: 'error',
               text: json.message,
-              timer: 3000
+              timer: 5000
              })
             }
           }
@@ -200,4 +214,95 @@ formValidation(fields)
   });
 })(jQuery);
 
+(function($) {
+  $(document).ready(function () {
+    $('#delete').click( function() {
+     Swal.fire({
+        icon: 'warning',
+        text: 'Voulez-vous vraiment supprimer votre compte ?',
+        showDenyButton: true,
+        confirmButtonText: 'Oui',
+        denyButtonText: `Non, Annuler`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+         
+        $.ajax({
+          url: ajaxurl,
+          type: "POST",
+          data: {'action': 'delete_account'},
+          success:function(result){
+            var json = JSON.parse(result);
+              
+              if(json.code1==200){
+            Swal.fire({
+              icon: 'success',
+              text: 'compte supprimée',
+              timer: 3000
+             })
+            var redirect = window.location.origin+'/sntl/connexion-2'
+            window.location.href = redirect
+               
+                }
+                else{
+              Swal.fire({
+              icon: 'error',
+              text: 'not deleted',
+              timer: 3000
+             })
+            }
+            }
+          
+        })
+      }})
+      });
+  });
+})(jQuery);
 
+(function($) {
+  $(document).ready(function () {
+    $('#update').click( function() {
+        
+        var newpassword = $('#newpassword').val();
+        var oldpassword = $('#oldpassword').val();
+        var er = false;
+
+  function formValidation(arr){
+    arr.forEach(function(el) {
+        if ($.trim($('#'+el).val()).length == 0) {
+          $('.'+el).css('display','block');
+          er = true;
+        } else {
+          $('.'+el).css('display','none');
+        }
+    });
+  }
+var fields = ['newpassword','oldpassword']
+formValidation(fields)
+  if( er == true){
+     return false;
+    }
+       
+  
+        $.ajax({
+          url: ajaxurl,
+          type: "POST",
+          data: {'action': 'update_user','oldpassword': oldpassword,'newpassword': newpassword},
+          success:function(res){
+            var json = JSON.parse(res);
+              if(json.code1==200){
+                Swal.fire({
+              icon: 'success',
+              text: json.message,
+        
+             })
+            }else{
+              Swal.fire({
+              icon: 'error',
+              text: json.message,
+              timer: 3000
+             })
+            }
+          }
+        })});
+  });
+})(jQuery);

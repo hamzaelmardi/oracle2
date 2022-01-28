@@ -2,8 +2,6 @@
     ob_start();
     session_start();
 
-
-
     include('index.php');
 
     function info_shortcode() {
@@ -72,6 +70,7 @@
           cursor: pointer;
         }
         </style>
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
           <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
           <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
           <script src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
@@ -105,6 +104,9 @@
                 "pageLength":5,
                 orderCellsTop: true,
                 fixedHeader: true,
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.11.4/i18n/fr_fr.json"
+            }
             } );
 
             $("#facture,#reglement").on("change", function () {
@@ -143,13 +145,15 @@
         <body>
  <h1>Espace Fournisseur</h1> 
         <table id="example" class="display" style="width:100%">
-            <thead>
-                <tr>
+            <thead >
+            
+                <tr style="background-color: #8cc63f;">
                     <th>Date facture</th>
                     <th>Date règlement</th>
                     <th>Réf règlement</th>
                     <th>Montant réglé</th>
                 </tr>
+                 
             </thead>
             <tbody>';
         for ($i = 0; $i < $nrows; $i++) { 
@@ -175,7 +179,7 @@ else {
     
      Swal.fire({
               icon: 'warning',
-              text: 'vous  n\'etes pas autorisé pour accéder à cette page',
+              text: 'vous  n\'etes pas autorisé à accéder à cette page',
               allowOutsideClick : false,
              }).then((result) => {
               if (result.isConfirmed) {

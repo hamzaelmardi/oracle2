@@ -24,24 +24,24 @@ input[type=password] {
   box-sizing: border-box;
 }
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed;
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;  
+  height: 100%;  
+  overflow: auto;
+  background-color: rgb(0,0,0);  
+  background-color: rgba(0,0,0,0.4); 
   padding-top: 60px;
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto; 
   border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 50%; 
 }
 
 
@@ -106,13 +106,14 @@ input[type=password] {
 }
 #iv{
     margin: 0 auto;
-    width:40% 
+    width:42% 
 }
  .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
 }
 img.avatar {
+  margin-top: -20px;
 margin-bottom: -27px;
   width: 30%;
   border-radius: 50%;
@@ -121,23 +122,23 @@ margin-bottom: -27px;
 border-radius: 4px 4px 4px 4px;
   border: none;
   color: #30404b;
-  padding: 10px 24px;
+  padding: 4px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 21px;
+  font-size: 18px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 .button1 {
-   background-color: #1409e3;
+   background-color: #8cc63f;
   color: white;
-  border: 2px solid #1409e3;
+  border: 2px solid #8cc63f;
   
 }
 .button2 {
-   background-color: #c20c1d;
+   background-color: #dc3741;
   color: white;
   border: 2px solid #c20c1d;
   
@@ -155,7 +156,7 @@ border-radius: 4px 4px 4px 4px;
 #label {
  color: #d93025; font-size: 14px;align-items: flex-start;display:none;margin-top: -6px
 }
-.title {color: grey; }
+.title {color: #30404b; }
 #label {color: #d93025; font-size: 14px;align-items: flex-start;display:none;margin-top: -6px}
 input { box-shadow: 0 0 3px black; margin: 10px }
 </style>
@@ -173,7 +174,7 @@ input { box-shadow: 0 0 3px black; margin: 10px }
     <h6 class="title">Email : <b>'. $email .'</b></h6>
     <h6 class="title">Non d\'utilisateur : <b>'. $login  .'</b></h6>
     </div>
-     <center> <button  class="button button1" onclick="document.getElementById(\'id01\').style.display=\'block\'"> modifier</button>  <button  class="button button2" id ="delete"> supprimer </button></center> 
+     <center> <button  class="button button1" onclick="document.getElementById(\'id01\').style.display=\'block\'"> <i class="fas fa-user-edit"></i> Modifier </button>  <button  class="button button2" id ="delete" > <i class="fas fa-trash"></i> Supprimer </button></center> 
   </div>
      </div>
 

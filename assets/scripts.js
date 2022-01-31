@@ -278,6 +278,7 @@ formValidation(fields)
   }
 var fields = ['newpassword','oldpassword']
 formValidation(fields)
+
   if( er == true){
      return false;
     }

@@ -292,6 +292,9 @@ include(__DIR__ . '/new_post_status.php');
     $id = $user->data->ID;
     if(wp_delete_user( $id )){
         echo json_encode(array('code1'=>200)); 
+
+    unset($_SESSION['login']);
+    unset($_SESSION['password']);
       wp_die();
     }
     else {
@@ -321,7 +324,7 @@ function capitaine_update_user() {
  $user = get_user_by('login', $login);
  $pass = $user->data->user_pass;
 if($wp_hasher->CheckPassword($oldpassword,$pass)){ 
-     echo json_encode(array('code1'=>200 ,'message'=>'Mot de passe est à jour'));  
+     echo json_encode(array('code1'=>200 ,'message'=>'Mot de passe a été modifier'));  
 
     $id = $user->data->ID; 
    wp_update_user( array(

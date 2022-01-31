@@ -143,7 +143,7 @@
         </script>
 
         <body>
- <h1>Espace Fournisseur</h1> 
+ <h1>Espace Fournisseur</h1> </br>
         <table id="example" class="display" style="width:100%">
             <thead >
             
@@ -165,7 +165,6 @@
         }
         $table1 .= '</tbody>
         </table>
-        <b> <center> Click here to<a href = "/sntl/wp-content/plugins/test/logout" class="button"> logout.<a></center> </b>
         </body>
         '; 
 

@@ -92,8 +92,9 @@ input[type=text] {
   <script src="//code.jquery.com/jquery-3.5.1.js"></script>
   <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <h1>Espace Client</h1> 
-   <select  id="source" >
+  <h1>Espace Client</h1> </br>
+  
+<!--   <select  id="source" >
    <option value="" selected disabled>select</option>
    <option value="parc">Consultation parc</option>
   <option value="vehicule">Fiche véhicule</option>
@@ -102,7 +103,8 @@ input[type=text] {
   <option value="livre">Situation des carnets livrés</option>  
   <option value="nonregle">Situation des carnets livrés non réglés</option>  
   <option value="consommation">Situation des consommations du Parc</option>  
-</select >
+</select > -->
+
 <!-- script select -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -282,7 +284,7 @@ $table1 .= '</tbody>
 </div>
 
 <!-- ---------------------------------------- -->
-<div name="fournisseur" id="fournisseur" style="display:none">
+<!-- <div name="fournisseur" id="fournisseur" style="display:none"> -->
 
   <!-- script datatables -->
 
@@ -369,7 +371,6 @@ nonregle
 <div name="consommation" id="consommation" style="display:none">
 consommation
 </div>
-<b> <center> Click here to<a href = "/sntl/wp-content/plugins/test/logout" class="button"> logout.<a></center> </b>
 </body>
 
 '

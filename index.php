@@ -255,7 +255,7 @@ $vc= array(
 
 }
 else {
-echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
+echo json_encode(array('code1'=>404 ,'message'=>'username already exists'));
 }}
     wp_die();
 }

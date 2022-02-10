@@ -147,7 +147,7 @@
         <table id="example" class="display" style="width:100%">
             <thead >
             
-                <tr style="background-color: #8cc63f;">
+                <tr >
                     <th>Date facture</th>
                     <th>Date règlement</th>
                     <th>Réf règlement</th>

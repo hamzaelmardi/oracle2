@@ -1,5 +1,5 @@
 <?php
-function form_inscription_shortcode() {
+function dt_inscription_shortcode() {
  return $var = '
  <html >
  <head>
@@ -165,4 +165,4 @@ border-radius: 4px 4px 4px 4px;
   ';
 }
 
-add_shortcode('myformshortcode','form_inscription_shortcode');
+add_shortcode('dtformshortcode','dt_inscription_shortcode');

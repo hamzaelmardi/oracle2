@@ -1,5 +1,6 @@
 <?php
 
+/*
 $conn = oci_connect('c##hamza', '123','(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST =127.0.0.1)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = ORCL) (SID = ORCL)))');
 	if($conn)
 	{
@@ -8,7 +9,6 @@ $conn = oci_connect('c##hamza', '123','(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP
 	  Echo "connection failed" ;
 	}
 
-/*
 $stmt = oci_parse($conn, "select * from fournisseur");
 oci_execute($stmt);
 $nrows = oci_fetch_all($stmt, $results);

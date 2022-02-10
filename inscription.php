@@ -75,58 +75,50 @@ border-radius: 4px 4px 4px 4px;
   <option value="Personnemoral">Personne morale</option>
 </select >
      <div name="Personnephysique" id="Personnephysique" style="display:none">
+<div class="row">
+<div class="col-6">
         <input type="text" id ="nom" name="nom" placeholder="nom" required>
         <label class="nom" id="label" >Saisissez votre nom </label> 
         <input type="text" id ="prenom" name="prenom" placeholder="prenom" required>
         <label class="prenom" id="label">Saisissez votre prenom </label> 
+</div>
+<div class="col-6">
         <input type="text" id ="cin" name="cin" placeholder="cin" required>
          <label class="cin" id="label">Saisissez votre cin </label> 
         <input type="text"  id ="code" name="code" placeholder="code fournisseur SNTL" required>
         <label  class="code" id="label">Saisissez votre code fournisseur sntl </label> 
-        <div class="input-group mb-0">
-             <input type="text"  id ="email" name="email" placeholder="adresse email" style="width: 100%;"required >
-        <div class="input-group-append" style="height: 58px;position: absolute;right: -9px;top: -1px;">
-             <span class="input-group-text">example@example.com</span>
-        </div>
-        </div>
-        <label class="email" id="label">Saisissez votre adresse email</label>
-        <div class="input-group mb-0">
-            <div class="input-group-prepend position_icon_fr" style="height: 45px;">
-           <span class="input-group-text" id="basic-addon4" style="height: 37px;position: absolute;left: -9px;top: -2px;width: 57px;"><i class="fa fa-phone" style="font-size:25px;color:#30404b"></i></span>
-            </div>
-            <input type="tel" id ="tel" name="tel" placeholder="telephone" style="width: 50%;right: 430px; height: 37px;margin-left: 60px;"/>
-        </div>
-        <label class="tel" id="label">Saisissez votre numero de telephone</label>
+</div>
+</div>
+<div class="row">
+<div class="col-6">
+             <input type="text"  id ="email" name="email" placeholder="adresse email"  >
+             <label class="email" id="label">Saisissez votre adresse email</label>
+             <input type="tel" id ="tel" name="tel" placeholder="telephone" />
+             <label class="tel" id="label">Saisissez votre numero de telephone</label>
+</div>
+<div class="col-6">
         <input type="text"  id ="login" name="login" placeholder="login" required>
         <label  class="login" id="label">Saisissez votre login</label> 
         <input type="text"  id ="password" name="password" placeholder="password" required>
         <label class="password" id="label">Saisissez votre password</label> 
+</div>
+</div>
         <center> <button class="button button1" id ="inscription" > inscription </button> </center>
       </div>
        <div name="Personnemoral" id="Personnemoral" style="display:none">
         <input type="text"  id ="raison" name="raison" placeholder="Raison sociale" required>
          <label class="raison" id="label" >Saisissez votre raison social </label> 
-        <input type="text"  id ="code1" name="code1" placeholder="code fournisseur SNTL" required>
+        <input type="text"  id ="code1" name="code1" placeholder="Code fournisseur SNTL" required>
          <label class="code1" id="label" >Saisissez votre code fournisseur sntl </label> 
         <input type="text"  id ="registre" name="registre" placeholder="Registre de commerce Mail" required>
         <label class="registre" id="label" >Saisissez votre Registre de commerce Mail </label> 
-        <div class="input-group mb-0">
-              <input type="text"  id ="emailm" name="emailm" placeholder="adresse email" required >
-        <div class="input-group-append" style="height: 58px;position: absolute;right: -9px;top: -1px;">
-             <span class="input-group-text">example@example.com</span>
-        </div>
-        </div>
+        <input type="text"  id ="emailm" name="emailm" placeholder="Adresse email" required >
         <label class="emailm" id="label">Saisissez votre adresse email</label>
-        <div class="input-group">
-            <div class="input-group-prepend position_icon_fr" style="height: 45px;">
-            <span class="input-group-text" id="basic-addon4" style="height: 37px;position: absolute;left: -9px;top: -2px;width: 57px;"><i class="fa fa-phone" style="font-size:25px;color:#30404b"></i></span>
-            </div>
-            <input type="tel" id ="tel1" name="tel1" placeholder="telephone" style="width: 50%;right: 430px; height: 37px;margin-left: 60px;"/>
-        </div>
+        <input type="tel" id ="tel1" name="tel1" placeholder="Telephone" />
         <label class="tel1" id="label" >Saisissez votre numero de telephone </label>
-        <input type="text"  id ="login1" name="login1" placeholder="login" required>
+        <input type="text"  id ="login1" name="login1" placeholder="Login" required>
         <label class="login1" id="label" >Saisissez votre login </label>
-        <input type="text"  id ="password1" name="password1" placeholder="password" required>
+        <input type="text"  id ="password1" name="password1" placeholder="Password" required>
         <label class="password1" id="label" >Saisissez votre password </label>
         <center>
         <div class="container" >

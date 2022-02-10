@@ -38,12 +38,51 @@ add_action('save_post','save_post_callback');
 function save_post_callback($post_id){
     remove_action('save_post','save_post_callback');
     if (isset($_POST['reject_client'])){
-
+$nom = get_field( 'nom',$post_id);
+ $email =  get_field( 'email',$post_id);
 
        wp_update_post(array(
             'ID'    =>  $post_id,
             'post_status'   =>  'rejected'
         ));
+
+       $to = $email;
+  $subject  = "compte refuse";
+  $body = $body = '<head>
+  <style type="text/css">
+    @media (min-width: 650px) {
+      .content{
+        margin: 0 15%;
+        padding:0 20px;
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .content{
+        margin: 0;
+        width: 100%;
+        padding:0
+      }
+    }
+
+  </style>
+</head>
+   
+   <body style="margin: 0 !important; padding: 0 !important;>
+
+       <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
+
+            <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
+ </div>
+ <br>
+            <p>Bonjour M/Mme <b>'.$nom.'</b>,<br>votre demande d\'inscrption a été refuse.</p>
+            </div>
+
+  </body>';
+  $headers = "From: hamzatwins10@gmail.com";
+  $headers = 'Content-type: text/html; charset=UTF-8';
+  mail($to, $subject , $body, $headers);
        
        $domaine = get_site_url();
 $link = $domaine."/wp-admin/edit.php?post_type=verifier_client";
@@ -69,6 +108,51 @@ if (wp_redirect ($link)){
         'role' => 'client'
         );
 $user_id = wp_insert_user( $userdata ) ;
+
+ $to = $email;
+  $subject  = "Validation de compte";
+  $body = '<head>
+  <style type="text/css">
+    @media (min-width: 650px) {
+      .content{
+        margin: 0 15%;
+        padding:0 20px;
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .content{
+        margin: 0;
+        width: 100%;
+        padding:0
+      }
+    }
+
+  </style>
+</head>
+   
+   <body style="margin: 0 !important; padding: 0 !important;>
+
+       <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
+
+            <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
+ </div>
+ <br>
+            <p>Bonjour M/Mme <b>'.$nom.'</b>,<br>votre demande d\'inscrption a été accepté,votre compte est active.<br>
+            nom d\'utilisateur : <b>'.$login.'</b><br>
+            mot de pass  : <b>'.$password.'</b></p>
+            
+           
+      
+        
+    </div>
+
+  </body>';
+  $headers = "From: sntl";
+  $headers = 'Content-type: text/html; charset=UTF-8';
+  mail($to, $subject , $body, $headers);
+   
 
 wp_update_post(array(
             'ID'    =>  $post_id,

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('index.php');
-function form_conx_shortcode() {
+function dt_conx_shortcode() {
  return $var = '
  <head>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -113,4 +113,4 @@ input { box-shadow: 0 0 3px black; margin: 10px }
   ';
 }
 
-add_shortcode('myformshortcodeconx','form_conx_shortcode');
+add_shortcode('dtconx','dt_conx_shortcode');

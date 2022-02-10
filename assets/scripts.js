@@ -119,6 +119,7 @@ formValidation(fields)
         var tel1 = $('#tel1').val();
     var emailm = $('#emailm').val();
          var er = false;
+         
 
   function formValidation(arr){
     arr.forEach(function(el) {
@@ -174,6 +175,21 @@ formValidation(fields)
         var tel2 = $('#tel2').val();
          var er = false;
 
+  function validateEmail(emailinc) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return emailReg.test( emailinc );
+}
+var fields = ['email2']
+formValidation(fields)
+  if( !validateEmail($('#email2').val())){
+   Swal.fire({
+              icon: 'warning',
+              text: 'email non valide',
+             })
+    return false;
+
+    }
+
   function formValidation(arr){
     arr.forEach(function(el) {
         if ($.trim($('#'+el).val()).length == 0) {
@@ -189,6 +205,7 @@ formValidation(fields)
   if( er == true){
      return false;
     }
+
         $.ajax({
           url: ajaxurl,
           type: "POST",

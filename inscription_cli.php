@@ -16,7 +16,7 @@ function form_inscription_client_shortcode() {
  .container {
   border-radius: 5px;
   background-color: #f8f4f4;
-  padding: 30px;
+  padding: 40px;
 }
 
   input[type=text],input[type=tel] {
@@ -68,33 +68,43 @@ input,span { box-shadow: 0 0 2px grey; margin: 10px }
   </div>
  </center>
 <div id="iv" class="container" >  
-
+<div class="row">
+<div class="col-6">
+<!--<label ><b>Raison Social :</b></label>-->
         <input type="text" id ="rs" name="rs" placeholder="RS" required>
          <label  class="rs" id="label">Saisissez votre rs</label> 
-        <input type="text" id ="nom2" name="nom2" placeholder="nom" required>
+      <!--   <label ><b>Nom :</b></label>-->
+        <input type="text" id ="nom2" name="nom2" placeholder="Nom" required>
          <label  class="nom2" id="label">Saisissez votre nom</label> 
-        <input type="text" id ="prenom2" name="prenom2" placeholder="prenom" required>
+</div>     
+ <div class="col-6"> 
+ <!--<label ><b>Prenom :</b></label>-->
+        <input type="text" id ="prenom2" name="prenom2" placeholder="Prenom" required>
          <label  class="prenom2" id="label">Saisissez votre prenom</label> 
-        <input type="text"  id ="code2" name="code2" placeholder="code client SNTL" required>
+       <!--  <label ><b>Code :</b></label>-->
+        <input type="text"  id ="code2" name="code2" placeholder="Code client SNTL" required>
          <label  class="code2" id="label">Saisissez votre code client SNTL</label> 
-        <div class="input-group mb-0">
-             <input type="text"  id ="email2" name="email2" placeholder="adresse email" style="width: 100%;"required >
-        <div class="input-group-append" style="height: 58px;position: absolute;right: -9px;top: -1px;">
-             <span class="input-group-text">example@example.com</span>
-        </div>
-        </div>
+</div> 
+</div>
+<div class="row">
+<div class="col-6">
+      <!-- <label ><b>Email :</b></label>-->
+             <input type="text"  id ="email2" name="email2" placeholder="Adresse email" >
+    
          <label  class="email2" id="label">Saisissez votre adresse email</label> 
-        <div class="input-group">
-            <div class="input-group-prepend position_icon_fr" style="height: 45px;">
-            <span class="input-group-text" id="basic-addon4" style="height: 37px;position: absolute;left: -9px;top: -2px;width: 57px;"><i class="fa fa-phone" style="font-size:25px;color:#30404b"></i></span>
-            </div>
-            <input type="tel" id ="tel2" name="tel2" placeholder="telephone" style="width: 50%;right: 430px; height: 37px;margin-left: 60px;"/>
-        </div>
+        <!--<label ><b>Telephone :</b></label>-->
+            <input type="tel" id ="tel2" name="tel2" placeholder="Telephone" />
          <label  class="tel2" id="label">Saisissez votre numero de telephone</label> 
-        <input type="text"  id ="login2" name="login2" placeholder="login" required>
+</div>     
+ <div class="col-6"> 
+ <!-- <label ><b>Login :</b></label>-->
+        <input type="text"  id ="login2" name="login2" placeholder="Login" required>
          <label  class="login2" id="label">Saisissez votre login</label> 
-        <input type="text"  id ="password" name="password" placeholder="password" required>
+         <!--<label ><b>Password :</b></label>-->
+        <input type="text"  id ="password" name="password" placeholder="Password" required>
          <label  class="password" id="label">Saisissez votre password</label> 
+</div>
+</div>
      <center>
     <div class="container" >
        <button class="button button1" id ="inscriptioncli" > inscription </button> 

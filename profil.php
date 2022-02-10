@@ -61,11 +61,8 @@ border-radius: 5px;
 	<a target="_blank" style="color: white;">' . $username . $dropdown .'</a>
 	</div>';
 
-		
-		
-	} 
+		} 
 
-	
 	return $content;
 	
 }

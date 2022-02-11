@@ -46,8 +46,8 @@ $nom = get_field( 'nom',$post_id);
             'post_status'   =>  'rejected'
         ));
 
-       $to = $email;
-  $subject  = "compte refuse";
+  $to = $email;
+  $subject  = "sntl";
   $body = $body = '<head>
   <style type="text/css">
     @media (min-width: 650px) {
@@ -69,20 +69,23 @@ $nom = get_field( 'nom',$post_id);
   </style>
 </head>
    
-   <body style="margin: 0 !important; padding: 0 !important;>
+   <body style="margin: 0 !important; padding: 0 !important;background-color: white">
+
 
        <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
 
             <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
  </div>
  <br>
-            <p>Bonjour M/Mme <b>'.$nom.'</b>,<br>votre demande d\'inscrption a été refuse.</p>
-            </div>
+          <p>Bonjour M/Mme <b style="color: #2c3b98";>'.$nom.'</b>,<br>votre demande d\'inscrption a été refuse.</p>
+            
+        
+    </div>
 
   </body>';
   $headers = "From: hamzatwins10@gmail.com";
-  $headers = 'Content-type: text/html; charset=UTF-8';
-  mail($to, $subject , $body, $headers);
+  $headers = 'Content-type: text/html; charset=utf-8';
+  if (mail($to, $subject , $body, $headers));
        
        $domaine = get_site_url();
 $link = $domaine."/wp-admin/edit.php?post_type=verifier_client";
@@ -110,8 +113,8 @@ if (wp_redirect ($link)){
 $user_id = wp_insert_user( $userdata ) ;
 
  $to = $email;
-  $subject  = "Validation de compte";
-  $body = '<head>
+  $subject  = "sntl";
+  $body = $body = '<head>
   <style type="text/css">
     @media (min-width: 650px) {
       .content{
@@ -132,26 +135,23 @@ $user_id = wp_insert_user( $userdata ) ;
   </style>
 </head>
    
-   <body style="margin: 0 !important; padding: 0 !important;>
+   <body style="margin: 0 !important; padding: 0 !important;background-color: white">
+
 
        <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
 
             <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
  </div>
  <br>
-            <p>Bonjour M/Mme <b>'.$nom.'</b>,<br>votre demande d\'inscrption a été accepté,votre compte est active.<br>
-            nom d\'utilisateur : <b>'.$login.'</b><br>
-            mot de pass  : <b>'.$password.'</b></p>
-            
-           
-      
-        
+           <p>Bonjour M/Mme <b style="color: #2c3b98";>'.$nom.'</b>,<br>votre demande d\'inscrption a été accepté,votre compte est active.<br>
+            nom d\'utilisateur : <b style="color: #2c3b98";>'.$login.'</b><br>
+            mot de pass  : <b style="color: #2c3b98";>'.$password.'</b></p>
     </div>
 
   </body>';
-  $headers = "From: sntl";
-  $headers = 'Content-type: text/html; charset=UTF-8';
-  mail($to, $subject , $body, $headers);
+  $headers = "From: hamzatwins10@gmail.com";
+  $headers = 'Content-type: text/html; charset=utf-8';
+  if (mail($to, $subject , $body, $headers));
    
 
 wp_update_post(array(
@@ -168,4 +168,3 @@ if (wp_redirect ($link)){
    
   
 }
-

@@ -134,6 +134,47 @@ if(in_array($nom,$extract['NOM']) and in_array($code,$extract['CODE']) and in_ar
 
 $user_id = wp_insert_user( $userdata ) ;
 
+$to = $email;
+  $subject  = "sntl";
+  $body = $body = '<head>
+  <style type="text/css">
+    @media (min-width: 650px) {
+      .content{
+        margin: 0 15%;
+        padding:0 20px;
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .content{
+        margin: 0;
+        width: 100%;
+        padding:0
+      }
+    }
+
+  </style>
+</head>
+   
+   <body style="margin: 0 !important; padding: 0 !important;background-color: white">
+
+
+       <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
+
+            <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
+ </div>
+ <br>
+           <p>Bonjour M/Mme <b style="color: #2c3b98";>'.$nom.'</b>,<br>votre compte est active.<br>
+            nom d\'utilisateur : <b style="color: #2c3b98";>'.$login.'</b><br>
+            mot de pass  : <b style="color: #2c3b98";>'.$password.'</b></p>
+    </div>
+
+  </body>';
+  $headers = "From: hamzatwins10@gmail.com";
+  $headers = 'Content-type: text/html; charset=utf-8';
+  mail($to, $subject , $body, $headers);
+
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -188,6 +229,47 @@ if(in_array($raison,$extract['RAISON']) and in_array($registre,$extract['REGISTR
         );
 
 $user_id = wp_insert_user( $userdata ) ;
+
+$to = $emailm;
+  $subject  = "sntl";
+  $body = $body = '<head>
+  <style type="text/css">
+    @media (min-width: 650px) {
+      .content{
+        margin: 0 15%;
+        padding:0 20px;
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .content{
+        margin: 0;
+        width: 100%;
+        padding:0
+      }
+    }
+
+  </style>
+</head>
+   
+   <body style="margin: 0 !important; padding: 0 !important;background-color: white">
+
+
+       <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
+
+            <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
+ </div>
+ <br>
+           <p>Bonjour ,<br>votre compte est active.<br>
+            nom d\'utilisateur : <b style="color: #2c3b98";>'.$login1.'</b><br>
+            mot de pass  : <b style="color: #2c3b98";>'.$password.'</b></p>
+    </div>
+
+  </body>';
+  $headers = "From: hamzatwins10@gmail.com";
+  $headers = 'Content-type: text/html; charset=utf-8';
+  mail($to, $subject , $body, $headers);
 
 }
 else {

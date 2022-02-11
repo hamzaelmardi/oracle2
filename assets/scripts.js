@@ -175,21 +175,6 @@ formValidation(fields)
         var tel2 = $('#tel2').val();
          var er = false;
 
-  function validateEmail(emailinc) {
-  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-  return emailReg.test( emailinc );
-}
-var fields = ['email2']
-formValidation(fields)
-  if( !validateEmail($('#email2').val())){
-   Swal.fire({
-              icon: 'warning',
-              text: 'email non valide',
-             })
-    return false;
-
-    }
-
   function formValidation(arr){
     arr.forEach(function(el) {
         if ($.trim($('#'+el).val()).length == 0) {
@@ -204,6 +189,35 @@ var fields = ['rs','prenom2','nom2','code2','tel2','login2','password','email2']
 formValidation(fields)
   if( er == true){
      return false;
+    }
+
+    function validateEmail(emailinc) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return emailReg.test( emailinc );
+}
+var fields = ['email2']
+formValidation(fields)
+  if( !validateEmail($('#email2').val())){
+   Swal.fire({
+              icon: 'warning',
+              text: 'email non valide , format : example@example.com',
+             })
+    return false;
+
+    }
+    function validatete(emailinc) {
+  var telReg = /^(05|06)(\d{2}){4}$/im;
+  return telReg.test( emailinc );
+}
+var fields = ['tel2']
+formValidation(fields)
+  if( !validatete($('#tel2').val())){
+   Swal.fire({
+              icon: 'warning',
+              text: 'tel non valide ',
+             })
+    return false;
+
     }
 
         $.ajax({

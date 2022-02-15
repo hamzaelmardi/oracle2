@@ -61,6 +61,10 @@ border-radius: 4px 4px 4px 4px;
     margin: 0 auto;
     width:70% 
 }
+#iv1{
+    margin: 0 auto;
+    width:85% 
+}
 </style>
 <body>
 <center>
@@ -74,6 +78,7 @@ border-radius: 4px 4px 4px 4px;
    <option value="Personnephysique">Personne physique</option>
   <option value="Personnemoral">Personne morale</option>
 </select >
+ <div id="iv1">
      <div name="Personnephysique" id="Personnephysique" style="display:none">
 <div class="row">
 <div class="col-6">
@@ -84,7 +89,7 @@ border-radius: 4px 4px 4px 4px;
 </div>
 <div class="col-6">
         <input type="text" id ="cin" name="cin" placeholder="cin" required>
-         <label class="cin" id="label">Saisissez votre cin </label> 
+        <label class="cin" id="label">Saisissez votre cin </label> 
         <input type="text"  id ="code" name="code" placeholder="code fournisseur SNTL" required>
         <label  class="code" id="label">Saisissez votre code fournisseur sntl </label> 
 </div>
@@ -103,8 +108,11 @@ border-radius: 4px 4px 4px 4px;
         <label class="password" id="label">Saisissez votre password</label> 
 </div>
 </div>
+<div class="container" >
         <center> <button class="button button1" id ="inscription" > inscription </button> </center>
       </div>
+      </div>
+     
        <div name="Personnemoral" id="Personnemoral" style="display:none">
         <input type="text"  id ="raison" name="raison" placeholder="Raison sociale" required>
          <label class="raison" id="label" >Saisissez votre raison social </label> 
@@ -125,6 +133,7 @@ border-radius: 4px 4px 4px 4px;
          <button class="button button1" id ="inscription1" > inscription </button> 
         <div>
         </center>
+      </div>
       </div>
       </body>
       </html>

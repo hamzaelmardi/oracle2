@@ -101,6 +101,8 @@ if (wp_redirect ($link)){
     $nom = get_field( 'nom',$post_id);
     $password = get_field( 'password',$post_id);
     $email =  get_field( 'email',$post_id);
+    $tel = get_field( 'telephone',$post_id);
+    $code = get_field( 'code_sntl',$post_id);
 
       $userdata = array(
         'user_login' => $login,
@@ -111,6 +113,8 @@ if (wp_redirect ($link)){
         'role' => 'client'
         );
 $user_id = wp_insert_user( $userdata ) ;
+update_user_meta($user_id,  'tel', $tel );
+update_user_meta($user_id,  'code', $code );
 
  $to = $email;
   $subject  = "sntl";

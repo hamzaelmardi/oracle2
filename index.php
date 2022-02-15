@@ -334,6 +334,8 @@ $vc= array(
    update_field('field_61e5481d16468',$email2,$userc);
    update_field('field_61e5482c16469',$password,$userc);
    update_field('field_61e548391646a',$login2,$userc);
+   update_field('field_620bbcc3142b8',$tel2,$userc);
+   update_field('field_620bbcce142b9',$code2,$userc);
 
 }
 else {
@@ -421,6 +423,5 @@ echo json_encode(array('code1'=>404 ,'message'=> 'Ancien mot de passe incorrect'
 }
     wp_die();
 }
-
 
 ?>

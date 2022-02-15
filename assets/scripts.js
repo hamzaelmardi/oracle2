@@ -1,5 +1,11 @@
 (function($) {
   $(document).ready(function () {
+$('#login,#password').on("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("conx").click();
+  }
+});
     $('#conx').click( function() {
  var login = $('#login').val();
         var pass = $('#password').val();  
@@ -164,6 +170,12 @@ formValidation(fields)
 
 (function($) {
   $(document).ready(function () {
+    $('#rs,#nom2,#prenom2,#code2,#login2,#password,#email2,#tel2').on("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("inscriptioncli").click();
+  }
+});
     $('#inscriptioncli').click( function() {
         var rs = $('#rs').val();
         var nom2 = $('#nom2').val();
@@ -214,7 +226,7 @@ formValidation(fields)
   if( !validatete($('#tel2').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'tel non valide ',
+              text: 'numero de telephone non valide , format : 0611223344',
              })
     return false;
 
@@ -338,3 +350,5 @@ formValidation(fields)
         })});
   });
 })(jQuery);
+//-----------------------dt---------------------
+

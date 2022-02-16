@@ -101,8 +101,8 @@ input,span { box-shadow: 0 0 2px grey; margin: 10px }
         <input type="text"  id ="login2" name="login2" placeholder="Login" required>
          <label  class="login2" id="label">Saisissez votre login</label> 
          <!--<label ><b>Password :</b></label>-->
-        <input type="text"  id ="password" name="password" placeholder="Password" required>
-         <label  class="password" id="label">Saisissez votre password</label> 
+        <input type="text"  id ="password2" name="password" placeholder="Password" required>
+         <label  class="password2" id="label">Saisissez votre password</label> 
 </div>
 </div>
      <center>

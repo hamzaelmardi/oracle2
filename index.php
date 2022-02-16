@@ -175,6 +175,8 @@ $to = $email;
   $headers = 'Content-type: text/html; charset=utf-8';
   mail($to, $subject , $body, $headers);
 
+}else if($user){
+echo json_encode(array('code1'=>405 ,'message'=>'nom d\'utilisateur exists deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -271,6 +273,8 @@ $to = $emailm;
   $headers = 'Content-type: text/html; charset=utf-8';
   mail($to, $subject , $body, $headers);
 
+}else if($user){
+echo json_encode(array('code1'=>405 ,'message'=>'nom d\'utilisateur exists deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'informations saisies ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -339,7 +343,7 @@ $vc= array(
 
 }
 else {
-echo json_encode(array('code1'=>404 ,'message'=>'username already exists'));
+echo json_encode(array('code1'=>404 ,'message'=>'nom d\'utilisateur exists deja'));
 }}
     wp_die();
 }

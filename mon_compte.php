@@ -9,6 +9,7 @@ function mon_compte_shortcode() {
   $user= get_user_by('login', $login);
   $nom = $user->data->display_name;
   $email = $user->data->user_email;
+  $user_id = $user->data->ID;
 
  $dbstr ="(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST =127.0.0.1)(PORT = 1521))
             (CONNECT_DATA =
@@ -22,10 +23,27 @@ function mon_compte_shortcode() {
      oci_execute($stmt1);
     $nrows = oci_fetch_all($stmt, $results);
     $nrows1 = oci_fetch_all($stmt1, $results1);
+     
  if(in_array('fournisseur',$user->roles)){
   $role = 'Fournisseur';
+  if ($nrows > 0) { 
+            for ($i = 0; $i < $nrows; $i++) { 
+            foreach ($results as $data) { 
+         $usertel=   $data[$i] ;
+                                    }
+                                          }
+                                        }
+    if ($nrows1 > 0) { 
+            for ($i = 0; $i < $nrows1; $i++) { 
+            foreach ($results1 as $data) { 
+         $usercode=   $data[$i] ;
+                                    }
+                                          }
+                                        }
  }else if(in_array('client',$user->roles)){
-  $role = 'Client';
+$role = 'Client';
+$usertel= get_user_meta($user_id, 'tel',true);
+$usercode= get_user_meta($user_id, 'code',true);
  }
  $var = '
  <head>
@@ -325,28 +343,11 @@ h6 {
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">telephone</p>
-                                        ';
-
-                                         if ($nrows > 0) { 
-                                          for ($i = 0; $i < $nrows; $i++) { 
-                                            foreach ($results as $data) { 
-                                             $var .= '<h6 class="text-muted f-w-400">'.$data[$i].'</h6>' ;
-                                            }
-                                          }
-                                        }
-
-                                   $var .= '         
+                                            <h6 class="text-muted f-w-400">'.$usertel.'</h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">code sntl</p>';
-                                        if ($nrows1 > 0) { 
-                                          for ($i = 0; $i < $nrows1; $i++) { 
-                                            foreach ($results1 as $data) { 
-                                             $var .= '<h6 class="text-muted f-w-400">'.$data[$i].'</h6>' ;
-                                            }
-                                          }
-                                        }
-                                          $var .= ' 
+                                        <p class="m-b-10 f-w-600">code sntl</p>
+                                         <h6 class="text-muted f-w-400">'.$usercode.'</h6>
                                        
                                     </div>
                                 </div>

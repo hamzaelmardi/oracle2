@@ -46,7 +46,7 @@ formValidation(fields)
                 }
             }else{
               Swal.fire({
-              icon: 'warning',
+              icon: 'error',
               text: json.message,
              
              })
@@ -126,7 +126,9 @@ formValidation(fields)
             var json = JSON.parse(res);
               if(json.code1==200){
                 Swal.fire({
-              icon: 'success',
+              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+           imageWidth: 100,
+          imageHeight: 100,
               text: json.message,
               allowOutsideClick : false,
              }).then((result) => {
@@ -138,7 +140,9 @@ formValidation(fields)
              }})
             }else{
               Swal.fire({
-              icon: 'warning',
+             imageUrl: 'https://www.freeiconspng.com/uploads/error-icon-32.png',
+                  imageWidth: 90,
+                  imageHeight: 90,
               text: json.message,
              
              })
@@ -218,7 +222,9 @@ formValidation(fields)
             var json = JSON.parse(result);
               if(json.code1==200){
                 Swal.fire({
-              icon: 'success',
+             imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+           imageWidth: 100,
+          imageHeight: 100,
               text: json.message,
               allowOutsideClick : false,
              }).then((result) => {
@@ -312,14 +318,18 @@ formValidation(fields)
             var json = JSON.parse(result);
               if(json.code1==200){
                 Swal.fire({
-              icon: 'warning',
+              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+           imageWidth: 100,
+          imageHeight: 100,
               text: json.message,
              })
             //var redirect = window.location.origin+'/sntl/connexion-2'
             //window.location.href = redirect
             }else{
               Swal.fire({
-              icon: 'error',
+              imageUrl: 'https://www.freeiconspng.com/uploads/error-icon-32.png',
+                  imageWidth: 90,
+                  imageHeight: 90,
               text: json.message,
              })
             }
@@ -349,7 +359,9 @@ formValidation(fields)
               
               if(json.code1==200){
             Swal.fire({
-              icon: 'success',
+              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+           imageWidth: 100,
+          imageHeight: 100,
               text: 'compte supprimée',
              
              })
@@ -359,7 +371,9 @@ formValidation(fields)
                 }
                 else{
               Swal.fire({
-              icon: 'error',
+              imageUrl: 'https://www.freeiconspng.com/uploads/error-icon-32.png',
+                  imageWidth: 90,
+                  imageHeight: 90,
               text: 'not deleted',
             
              })
@@ -411,7 +425,9 @@ formValidation(fields)
             var json = JSON.parse(res);
               if(json.code1==200){
                 Swal.fire({
-              icon: 'success',
+              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+           imageWidth: 100,
+          imageHeight: 100,
               text: json.message,
         
              })

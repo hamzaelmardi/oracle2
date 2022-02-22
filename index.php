@@ -184,6 +184,8 @@ Cordialement,</p>
 echo json_encode(array('code1'=>406 ,'message'=>' Ce code fournniseur n’existe pas, veuillez vérifier votre code fournniseur ou contacter la SNTL'));
 }else if($user){
 echo json_encode(array('code1'=>405 ,'message'=>'Ce nom d\'utilisateur existe déjà'));
+}else if($user_m){
+    echo json_encode(array('code1'=>404 ,'message'=>'Email exists deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'Vos informations ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -289,6 +291,8 @@ Cordialement,</p>
 echo json_encode(array('code1'=>406 ,'message'=>' Ce code fournniseur n’existe pas, veuillez vérifier votre code fournniseur ou contacter la SNTL'));
 }else if($user){
 echo json_encode(array('code1'=>405 ,'message'=>'Ce nom d\'utilisateur existe déjà'));
+}else if($user_m){
+    echo json_encode(array('code1'=>404 ,'message'=>'Email exists deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'Vos informations ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -329,14 +333,14 @@ $vqr= array(
 if(isset ($_POST['rs'] , $_POST['code2'], $_POST['email2'], $_POST['tel2'], $_POST['nom2'], $_POST['prenom2'])){
 
   $user= get_user_by('login', $login2);
-  $user_m = get_user_by('email', $email);
+  $user_m = get_user_by('email', $email2);
 
  $conn = oci_connect('c##hamza','123','localhost/orcl');
     $requete1="select nom,prenom,raison,code,email,tel from CLIENT where code ='$code2'";
     $stmt = oci_parse($conn, $requete1);
      oci_execute($stmt);
      oci_fetch_all($stmt,$extract) ;
-if(!$user_m &&  !$user){
+if(!$user){
     
      echo json_encode(array('code1'=>200 ,'message'=>' Inscription réussie, Une fois votre demande sera validée par l\'administrateur, vous recevrez un mail contenant vos informations de connexion. Merci')); 
 
@@ -355,6 +359,8 @@ $vc= array(
    update_field('field_620bbcc3142b8',$tel2,$userc);
    update_field('field_620bbcce142b9',$code2,$userc);
 
+}else if($user_m){
+    echo json_encode(array('code1'=>404 ,'message'=>'Email exists deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'nom d\'utilisateur exists deja'));

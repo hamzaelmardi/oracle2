@@ -106,9 +106,9 @@ input,span { box-shadow: 0 0 2px grey; margin: 10px }
 </div>
 </div>
      <center>
-    <div class="container" >
+   
        <button class="button button1" id ="inscriptioncli" > inscription </button> 
-      </div>
+      
      </center>
       </body>
       </html>

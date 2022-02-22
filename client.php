@@ -292,6 +292,13 @@ $table1 .= '</tbody>
    
 jQuery(document).ready( function ($) {
 $("#fournisseurs").DataTable( {
+              scrollX: true,
+        
+            "paging":         true,
+                "pageLength":5,
+                "scrollX": true,
+                orderCellsTop: true,
+                fixedHeader: true,
     "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.11.4/i18n/fr_fr.json"
             },
@@ -330,13 +337,13 @@ $("#fournisseurs").DataTable( {
 <body>
 
 <div id="select_filter" class="row"></div>
-<table id="fournisseurs" class="display" style="width:100%">
+<table id="fournisseurs" class="table table-hover table-bordered table-striped" style="width:100%">
     <thead>
         <tr style="background-color: #8cc63f;">
             <th>Num</th>
             <th>Raison social</th>
             <th>Adresse</th>
-            <th>Tel</th>
+            <th>Téléphone</th>
             <th>Fax</th>
             <th>Ville</th>
             <th>Type d’activité</th>

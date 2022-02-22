@@ -47,7 +47,7 @@ $nom = get_field( 'nom',$post_id);
         ));
 
   $to = $email;
-  $subject  = "sntl";
+  $subject  = "SNTL- Inscription non réussie";
   $body = $body = '<head>
   <style type="text/css">
     @media (min-width: 650px) {
@@ -77,7 +77,14 @@ $nom = get_field( 'nom',$post_id);
             <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
  </div>
  <br>
-          <p>Bonjour M/Mme <b style="color: #2c3b98";>'.$nom.'</b>,<br>votre demande d\'inscrption a été refuse.</p>
+          <p>Bonjour M/Mme <b>'.$nom.'</b>,<br>
+          Votre inscription à la plateforme des clients de la SNTL a été refusée.<br>
+
+Pour plus de détails, nous vous prions de contacter le service responsable par mail: XXX<br>
+Cordialement,
+
+
+</p>
             
         
     </div>
@@ -117,7 +124,7 @@ update_user_meta($user_id,  'tel', $tel );
 update_user_meta($user_id,  'code', $code );
 
  $to = $email;
-  $subject  = "sntl";
+  $subject  = "SNTL- Validation de compte";
   $body = $body = '<head>
   <style type="text/css">
     @media (min-width: 650px) {
@@ -147,15 +154,20 @@ update_user_meta($user_id,  'code', $code );
             <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
  </div>
  <br>
-           <p>Bonjour M/Mme <b style="color: #2c3b98";>'.$nom.'</b>,<br>votre demande d\'inscrption a été accepté,votre compte est active.<br>
-            nom d\'utilisateur : <b style="color: #2c3b98";>'.$login.'</b><br>
-            mot de pass  : <b style="color: #2c3b98";>'.$password.'</b></p>
+          <p>Bonjour Mme/M <b>'.$nom.'</b>,<br>
+Votre demande d\'inscription a été accéptée. Votre compte est à présent actif.
+Ci-dessous vos informations de connexion:<br>
+
+   - Nom d\'utilisateur : <b>'.$login.'</b><br>
+    - Mot de passe : <b>'.$password.'</b><br>
+ 
+
+Cordialement,</p>
     </div>
 
   </body>';
-  $headers = "From: hamzatwins10@gmail.com";
   $headers = 'Content-type: text/html; charset=utf-8';
-  if (mail($to, $subject , $body, $headers));
+  mail($to, $subject , $body, $headers);
    
 
 wp_update_post(array(

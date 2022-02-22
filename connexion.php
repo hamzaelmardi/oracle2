@@ -87,19 +87,19 @@ input { box-shadow: 0 0 3px black; margin: 10px }
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div id="iv" class="container" > 
 <div class="row">
-<div class="col-5">
+<div class="col-lg">
   <div class="imgcontainer">
     <img src="https://sntl.twinsmaroc.com/ds/wp-content/uploads/sites/10/2021/08/Login-1536x1536.png" alt="Avatar" class="avatar">
  </div>
  </div>
-  <div class="col-7">
+  <div class="col-lg">
   <div class="container1">
-      <center>  <input type="text" id ="loginconx" name="login"  placeholder="nom d\'utilisateur *" style="margin-top: 7px"required><br></center>
+      <center>  <input type="text" id ="loginconx" name="login"  placeholder="Nom d\'utilisateur*" style="margin-top: 7px"required><br></center>
         <label class="loginconx" id="label">Saisissez votre nom d\'utilisateur</label> 
-      <center>   <input type="password" id ="passwordconx" name="passwordconx" placeholder="mot de passe *"   style="margin-top: 7px" required></center>
+      <center>   <input type="password" id ="passwordconx" name="passwordconx" placeholder="Mot de passe*"   style="margin-top: 7px" required></center>
         <label class="passwordconx" id="label" >Entrez un mot de passe</label>
     </div>
-        <center> <button  class="button button1" id ="conx"> se connecter </button><br>
+        <center> <button  class="button button1" id ="conx"> Se connecter </button><br>
     <div class="container1">
     <a id="myHeader" href="/sntl/inscription-fournisseur" target="_blank">Créer votre compte fournisseur <a id="a">|</a></a> 
   <a id="myHeader" href="/sntl/inscription-client" target="_blank">Créer votre compte client</a> </center>

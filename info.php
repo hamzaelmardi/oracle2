@@ -54,6 +54,10 @@
           width: 100%;
           border: 1px solid black;
         }
+
+        #color{
+            background-color:#8cc63f;
+        }
         input {
         border: 1px solid #555;
         }
@@ -101,6 +105,8 @@
             } );
 
             var table = $("#example").DataTable( {
+              scrollX: true,
+            "paging":         true,
                 "pageLength":5,
                 orderCellsTop: true,
                 fixedHeader: true,
@@ -144,10 +150,10 @@
 
         <body>
  <h1>Espace Fournisseur</h1> </br>
-        <table id="example" class="display" style="width:100%">
+        <table id="example" class="table table-hover table-bordered table-striped" style="width:100%">
             <thead >
             
-                <tr >
+                <tr id="color">
                     <th>Date facture</th>
                     <th>Date règlement</th>
                     <th>Réf règlement</th>

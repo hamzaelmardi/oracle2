@@ -69,39 +69,39 @@ input,span { box-shadow: 0 0 2px grey; margin: 10px }
  </center>
 <div id="iv" class="container" >  
 <div class="row">
-<div class="col-6">
+<div class="col-lg">
 <!--<label ><b>Raison Social :</b></label>-->
-        <input type="text" id ="rs" name="rs" placeholder="RS" required>
+        <input type="text" id ="rs" name="rs" placeholder="Raison Social*" required>
          <label  class="rs" id="label">Saisissez votre rs</label> 
       <!--   <label ><b>Nom :</b></label>-->
-        <input type="text" id ="nom2" name="nom2" placeholder="Nom" required>
+        <input type="text" id ="nom2" name="nom2" placeholder="Nom*" required>
          <label  class="nom2" id="label">Saisissez votre nom</label> 
 </div>     
- <div class="col-6"> 
+ <div class="col-lg"> 
  <!--<label ><b>Prenom :</b></label>-->
-        <input type="text" id ="prenom2" name="prenom2" placeholder="Prenom" required>
+        <input type="text" id ="prenom2" name="prenom2" placeholder="Prénom*" required>
          <label  class="prenom2" id="label">Saisissez votre prenom</label> 
        <!--  <label ><b>Code :</b></label>-->
-        <input type="text"  id ="code2" name="code2" placeholder="Code client SNTL" required>
+        <input type="text"  id ="code2" name="code2" placeholder="Code client SNTL*" required>
          <label  class="code2" id="label">Saisissez votre code client SNTL</label> 
 </div> 
 </div>
 <div class="row">
-<div class="col-6">
+<div class="col-lg">
       <!-- <label ><b>Email :</b></label>-->
-             <input type="text"  id ="email2" name="email2" placeholder="Adresse email" >
+             <input type="text"  id ="email2" name="email2" placeholder=" Email*: exemple@exemple.com" >
     
          <label  class="email2" id="label">Saisissez votre adresse email</label> 
         <!--<label ><b>Telephone :</b></label>-->
-            <input type="tel" id ="tel2" name="tel2" placeholder="Telephone" />
+            <input type="tel" id ="tel2" name="tel2" placeholder="Téléphone*" />
          <label  class="tel2" id="label">Saisissez votre numero de telephone</label> 
 </div>     
- <div class="col-6"> 
+ <div class="col-lg"> 
  <!-- <label ><b>Login :</b></label>-->
-        <input type="text"  id ="login2" name="login2" placeholder="Login" required>
+        <input type="text"  id ="login2" name="login2" placeholder="Nom d\'utilisateur*" required>
          <label  class="login2" id="label">Saisissez votre login</label> 
          <!--<label ><b>Password :</b></label>-->
-        <input type="text"  id ="password2" name="password" placeholder="Password" required>
+        <input type="text"  id ="password2" name="password" placeholder="Mot de passe*" required>
          <label  class="password2" id="label">Saisissez votre password</label> 
 </div>
 </div>

@@ -48,7 +48,7 @@ formValidation(fields)
               Swal.fire({
               icon: 'warning',
               text: json.message,
-              timer: 3000
+             
              })
             }
           }
@@ -99,7 +99,7 @@ formValidation(fields)
   if( !validateEmail($('#email').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'email non valide , format : example@example.com',
+               html: ' Email non valide,<br> format accepté est: exemple@exemple.com',
              })
     return false;
 
@@ -113,7 +113,7 @@ formValidation(fields)
   if( !validatete($('#tel').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'numero de telephone non valide , format : 0611223344',
+               html: 'Numéro de téléphone invalide.<br> Format acceptée: 0XXXXXXXXX'
              })
     return false;
 
@@ -138,9 +138,9 @@ formValidation(fields)
              }})
             }else{
               Swal.fire({
-              icon: 'error',
+              icon: 'warning',
               text: json.message,
-              timer: 3000
+             
              })
             }
           }
@@ -191,7 +191,7 @@ formValidation(fields)
   if( !validateEmail($('#emailm').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'email non valide , format : example@example.com',
+               html: ' Email non valide,<br> format accepté est: exemple@exemple.com',
              })
     return false;
 
@@ -205,7 +205,7 @@ formValidation(fields)
   if( !validatete($('#tel1').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'numero de telephone non valide , format : 0611223344',
+               html: 'Numéro de téléphone invalide.<br> Format acceptée: 0XXXXXXXXX',
              })
     return false;
 
@@ -220,15 +220,19 @@ formValidation(fields)
                 Swal.fire({
               icon: 'success',
               text: json.message,
-              timer: 5000
-             })
-                var redirect = window.location.origin+'/sntl/connexion-2'
+              allowOutsideClick : false,
+             }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(result.isConfirmed);
+              var redirect = window.location.origin+'/sntl/connexion-2'
              window.location.href = redirect
+
+             }})
             }else{
             Swal.fire({
-              icon: 'error',
+              icon: 'warning',
               text: json.message,
-              timer: 5000
+             
              })
             }
           }
@@ -280,7 +284,7 @@ formValidation(fields)
   if( !validateEmail($('#email2').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'email non valide , format : example@example.com',
+              html: ' Email non valide,<br> format accepté est: exemple@exemple.com',
              })
     return false;
 
@@ -294,7 +298,7 @@ formValidation(fields)
   if( !validatete($('#tel2').val())){
    Swal.fire({
               icon: 'warning',
-              text: 'numero de telephone non valide , format : 0611223344',
+              html: 'Numéro de téléphone invalide.<br> Format acceptée: 0XXXXXXXXX',
              })
     return false;
 
@@ -317,7 +321,6 @@ formValidation(fields)
               Swal.fire({
               icon: 'error',
               text: json.message,
-              timer: 3000
              })
             }
           }
@@ -348,7 +351,7 @@ formValidation(fields)
             Swal.fire({
               icon: 'success',
               text: 'compte supprimée',
-              timer: 3000
+             
              })
             var redirect = window.location.origin+'/sntl/connexion-2'
             window.location.href = redirect
@@ -358,7 +361,7 @@ formValidation(fields)
               Swal.fire({
               icon: 'error',
               text: 'not deleted',
-              timer: 3000
+            
              })
             }
             }
@@ -371,9 +374,14 @@ formValidation(fields)
 
 (function($) {
   $(document).ready(function () {
+     $('#newpassword,#oldpassword').on("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("update").click();
+  }
+});
     $('#update').click( function() {
-        
-        var newpassword = $('#newpassword').val();
+      var newpassword = $('#newpassword').val();
         var oldpassword = $('#oldpassword').val();
         var er = false;
 
@@ -411,7 +419,7 @@ formValidation(fields)
               Swal.fire({
               icon: 'error',
               text: json.message,
-              timer: 3000
+             
              })
             }
           }

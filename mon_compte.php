@@ -211,7 +211,6 @@ body {
 }
 
 .bg-c-lite-green {
-    background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
     background: linear-gradient(to right, #30404b, #30404b)
 }
 
@@ -339,7 +338,7 @@ h6 {
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Email</p>
-                                        <h6 class="text-muted f-w-400">'.$email.'</h6>
+                                        <h6 class="text-muted f-w-400">'. $email .'</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Non d\'utilisateur</p>
@@ -348,11 +347,11 @@ h6 {
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">telephone</p>
-                                            <h6 class="text-muted f-w-400">'.$usertel.'</h6>
+                                        <p class="m-b-10 f-w-600">Téléphone</p>
+                                            <h6 class="text-muted f-w-400">'. $usertel .'</h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">code sntl</p>
+                                        <p class="m-b-10 f-w-600">Code SNTL</p>
                                          <h6 class="text-muted f-w-400">'.$usercode.'</h6>
                                        
                                     </div>

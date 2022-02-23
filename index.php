@@ -185,7 +185,7 @@ echo json_encode(array('code1'=>406 ,'message'=>' Ce code fournniseur n’existe
 }else if($user){
 echo json_encode(array('code1'=>405 ,'message'=>'Ce nom d\'utilisateur existe déjà'));
 }else if($user_m){
-    echo json_encode(array('code1'=>404 ,'message'=>'Email exists deja'));
+    echo json_encode(array('code1'=>404 ,'message'=>'Email existe deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'Vos informations ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -292,7 +292,7 @@ echo json_encode(array('code1'=>406 ,'message'=>' Ce code fournniseur n’existe
 }else if($user){
 echo json_encode(array('code1'=>405 ,'message'=>'Ce nom d\'utilisateur existe déjà'));
 }else if($user_m){
-    echo json_encode(array('code1'=>404 ,'message'=>'Email exists deja'));
+    echo json_encode(array('code1'=>404 ,'message'=>'Email existe deja'));
 }
 else {
 echo json_encode(array('code1'=>404 ,'message'=>'Vos informations ne correspondent pas aux informations saisies sur le système de gestion, veuillez contacter la SNTL'));
@@ -359,11 +359,59 @@ $vc= array(
    update_field('field_620bbcc3142b8',$tel2,$userc);
    update_field('field_620bbcce142b9',$code2,$userc);
 
+
+$link = get_edit_post_link($userc);
+   $to = 'hamzatwins10@gmail.com';
+  $subject  = "Inscription d'un nouveau client";
+  $body = '<head>
+  <style type="text/css">
+    @media (min-width: 650px) {
+      .content{
+        margin: 0 15%;
+        padding:0 20px;
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .content{
+        margin: 0;
+        width: 100%;
+        padding:0
+      }
+    }
+
+  </style>
+</head>
+   
+   <body style="margin: 0 !important; padding: 0 !important;background-color: #ddd">
+
+       
+       <div style="display: none; font-size: 1px; color: #cb242a; line-height: 4px; font-family: \'Lato\', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> Merci de confirmer votre adresse email
+       </div>
+
+       <div class="content" align="center" style="font-family: \'Lato\',Helvetica, Arial, sans-serif; line-height: 30px; font-size: 17px; background-color: #fff;">
+
+         <img src="https://www.leconomiste.com/sites/default/files/eco7/public/snlt-037.jpg" width="200px">
+
+          <p>Un nouveau client vient de faire l\'inscription<br>Veuillez cliquer sur le bouton ci dessous pour consulter<b style="color: #c92128"><br></p>
+         <strong><a href="'.$link.'" style="text-decoration:none; border-radius: 6px; padding: 18px; background-color: #284180; color: #FFF; text-decoration-style: none; font-size: 17px;">Consulter</a></strong><br><br>
+
+          
+            </div>
+       </div>
+        
+    </div>
+
+  </body>';
+  $headers = 'Content-type: text/html; charset=utf-8';
+  mail($to, $subject , $body, $headers);
+
 }else if($user_m){
-    echo json_encode(array('code1'=>404 ,'message'=>'Email exists deja'));
+    echo json_encode(array('code1'=>404 ,'message'=>'Email existe deja'));
 }
 else {
-echo json_encode(array('code1'=>404 ,'message'=>'nom d\'utilisateur exists deja'));
+echo json_encode(array('code1'=>404 ,'message'=>' Ce nom d\'utilisateur existe déjà'));
 }}
     wp_die();
 }
@@ -432,7 +480,7 @@ function capitaine_update_user() {
  $user = get_user_by('login', $login);
  $pass = $user->data->user_pass;
 if($wp_hasher->CheckPassword($oldpassword,$pass)){ 
-     echo json_encode(array('code1'=>200 ,'message'=>'Mot de passe a été modifier'));  
+     echo json_encode(array('code1'=>200 ,'message'=>'Votre mot de passe a été modifié'));  
 
     $id = $user->data->ID; 
    wp_update_user( array(

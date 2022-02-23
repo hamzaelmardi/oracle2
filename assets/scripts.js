@@ -122,11 +122,18 @@ formValidation(fields)
           url: ajaxurl,
           type: "POST",
           data: {'action': 'insert_fourn','nom': nom,'code': code,'login': login,'password': password,'email': email,'prenom': prenom,'cin': cin,'tel': tel},
+         beforeSend: function() {
+       $('.loading-form').css('display', 'block');
+       jQuery('.inscription-fourn-ph').css('pointer-events','none')
+
+    },
           success:function(res){
+            $('.loading-form').css('display', 'none');
+            jQuery('.inscription-fourn-ph').css('pointer-events','auto')
             var json = JSON.parse(res);
               if(json.code1==200){
                 Swal.fire({
-              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+              imageUrl: 'https://www.freeiconspng.com/uploads/ok-icon-success-19.png',
            imageWidth: 100,
           imageHeight: 100,
               text: json.message,
@@ -218,11 +225,19 @@ formValidation(fields)
           url: ajaxurl,
           type: "POST",
           data: {'action': 'insert_morale','raison': raison,'code1': code1,'login1': login1,'password': password,'registre': registre,'tel1': tel1,'emailm': emailm},
+           beforeSend: function() {
+        $('.loading-form').css('display', 'block');
+        jQuery('.inscription-fourn-ph').css('pointer-events','none')
+
+        },
           success:function(result){
+            $('.loading-form').css('display', 'none');
+            jQuery('.inscription-fourn-ph').css('pointer-events','auto')
+
             var json = JSON.parse(result);
               if(json.code1==200){
                 Swal.fire({
-             imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+             imageUrl: 'https://www.freeiconspng.com/uploads/ok-icon-success-19.png',
            imageWidth: 100,
           imageHeight: 100,
               text: json.message,
@@ -314,11 +329,17 @@ formValidation(fields)
           url: ajaxurl,
           type: "POST",
           data: {'action': 'insert_client','rs': rs,'code2': code2,'nom2': nom2,'prenom2': prenom2,'login2': login2,'password': password,'email2': email2,'tel2': tel2},
+          beforeSend: function() {
+        $('.loading-form').css('display', 'block');
+        jQuery('.inscription-client').css('pointer-events','none')
+    },
           success:function(result){
+           $('.loading-form').css('display', 'none');
+          jQuery('.inscription-client').css('pointer-events','auto')
             var json = JSON.parse(result);
               if(json.code1==200){
                 Swal.fire({
-              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+              imageUrl: 'https://www.freeiconspng.com/uploads/ok-icon-success-19.png',
            imageWidth: 100,
           imageHeight: 100,
               text: json.message,
@@ -359,10 +380,10 @@ formValidation(fields)
               
               if(json.code1==200){
             Swal.fire({
-              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+              imageUrl: 'https://www.freeiconspng.com/uploads/ok-icon-success-19.png',
            imageWidth: 100,
           imageHeight: 100,
-              text: 'compte supprimée',
+              text: 'Votre compte a été supprimé',
              
              })
             var redirect = window.location.origin+'/sntl/connexion-2'
@@ -425,7 +446,7 @@ formValidation(fields)
             var json = JSON.parse(res);
               if(json.code1==200){
                 Swal.fire({
-              imageUrl: 'https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemdefault_103756.png',
+              imageUrl: 'https://www.freeiconspng.com/uploads/ok-icon-success-19.png',
            imageWidth: 100,
           imageHeight: 100,
               text: json.message,

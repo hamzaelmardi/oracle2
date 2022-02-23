@@ -6,6 +6,18 @@ function form_inscription_shortcode() {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  </head>
  <style>
+ .loading-form{
+    top: 38%;
+    position: absolute;
+    left: 45%;
+    width: 10%;
+   display:none;
+}
+.loading-form img{
+    height:100%;
+   width:100%;
+  
+}
  .fa{
     margin-left: 5px;
 }
@@ -71,6 +83,7 @@ border-radius: 4px 4px 4px 4px;
      <h1>Inscription Fournniseur </h1> 
   </div>
  </center>
+ <div class="inscription-fourn-ph">
   <div id="iv" class="container" > 
   <label><b>Vous êtes?</b></label>
    <select  id="source" >
@@ -110,6 +123,8 @@ border-radius: 4px 4px 4px 4px;
 </div>
 
         <center> <button class="button button1" id ="inscription" > inscription </button> </center>
+
+        <div class="loading-form"><img src="https://c.tenor.com/5o2p0tH5LFQAAAAi/hug.gif"></div>
       
       </div>
      
@@ -131,11 +146,12 @@ border-radius: 4px 4px 4px 4px;
         <center>
         
          <button class="button button1" id ="inscription1" > Inscription </button> 
+         <div class="loading-form"><img src="https://c.tenor.com/5o2p0tH5LFQAAAAi/hug.gif"></div>
         
         </center>
       </div>
       </div>
-      
+      </div>
       
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

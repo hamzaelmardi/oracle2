@@ -7,6 +7,21 @@ function form_inscription_client_shortcode() {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  </head>
  <style>
+ 
+
+ .loading-form{
+    top: 38%;
+    position: absolute;
+    left: 45%;
+    width: 10%;
+   display:none;
+   z-index:99;
+}
+.loading-form img{
+    height:100%;
+   width:100%;
+  
+}
  .fa{
     margin-left: 5px;
 }
@@ -64,9 +79,12 @@ input,span { box-shadow: 0 0 2px grey; margin: 10px }
 <body>
 <center>
 <div>
+<div>
      <h1>Inscription Client </h1> 
   </div>
  </center>
+
+ <div class="inscription-client">
 <div id="iv" class="container" >  
 <div class="row">
 <div class="col-lg">
@@ -105,11 +123,12 @@ input,span { box-shadow: 0 0 2px grey; margin: 10px }
          <label  class="password2" id="label">Saisissez votre password</label> 
 </div>
 </div>
-     <center>
-   
-       <button class="button button1" id ="inscriptioncli" > inscription </button> 
-      
-     </center>
+     <center> <button class="button button1" id ="inscriptioncli" > Inscription </button> </center>
+      </div>
+        
+       </div>
+      <div class="loading-form"><img src="https://c.tenor.com/5o2p0tH5LFQAAAAi/hug.gif"></div>
+     
       </body>
       </html>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
